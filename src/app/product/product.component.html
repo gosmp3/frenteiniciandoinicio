@@ -1,0 +1,29 @@
+<div>
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+      <p-dialog header="{{ product.name }}" [(visible)]="display">
+        Precio: {{ product.price }}
+        <img
+          src="./assets/phones/{{ product.images }}"
+          width="100px"
+          height="100px"
+          alt="Sin imagen"
+        />
+        <button type="button" (click)="addToCart(product)">Comprar</button>
+      </p-dialog>
+    </a>
+  </h3>
+  <p *ngIf="product.description">{{ product.description }}</p>
+
+  <div>
+    <button class = "button1" type="button" (click)="showDialog()">Mostrar</button>
+    <p>
+  </div>
+
+  <button type="button" (click)="share()">Compartir</button>
+
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+<p-toast position="top-center"> </p-toast>
